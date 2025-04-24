@@ -12,7 +12,7 @@ body {
 a {
     text-decoration: none;
     color: #EFEFEF;
-    border: #EFEFEF 2.5px solid;
+    border: #EFEFEF 5px solid;
     border-radius: 25%;
     padding: 10px;
     transition: ease-out 0.25s;
@@ -47,7 +47,6 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
     max-width: 40%;
     margin: 0 auto;
-    
 }
 
 .subtitle {
