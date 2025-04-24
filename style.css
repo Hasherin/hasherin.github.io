@@ -1,7 +1,7 @@
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #2b2b33;
-    color: #ffffff;
+    color: #EFEFEF;
 }
 
 body {
@@ -11,13 +11,17 @@ body {
 
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: #EFEFEF;
+    border: #EFEFEF 2.5px solid;
+    border-radius: 25%;
+    padding: 10px;
+    transition: ease-out 0.25s;
 }
 
-.title {
-    width: 50%;
-    height: auto;
-    margin: auto;
+a:hover {
+    background-color: #70220e;
+    transition: scale(1.5);
+    transition: ease-in 0.25s;
 }
 
 .center {
@@ -30,28 +34,51 @@ a {
 }
 
 .iicons {
-    width: 200%;
+    width: 75%;
     height: auto;
+    margin-bottom: 8px;
 }
 
 .items {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     gap: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 40%;
+    margin: 0 auto;
+    
 }
 
 .subtitle {
     font-weight: lighter;
+    font-size: larger;
     color: #EFEFEF;
-    opacity: 50%;
+    opacity: 75%;
     align-items: center;
     text-align: center;
+    margin-bottom: 4px;
 }
 
 .title {
     font-weight: bold;
+    font-size: larger;
     color: #EFEFEF;
     align-items: center;
     text-align: center;
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.title-image {
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
