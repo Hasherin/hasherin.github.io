@@ -8,7 +8,7 @@ html {
 body {
 	margin: auto;
 	padding: auto;
-    transition: background-image 3s;
+    transition: background-image 1s;
 }
 
 a {
@@ -27,10 +27,9 @@ a:hover {
 }
 
 .divstrip {
-    display: none;
-	background-color: #2b2b33;
+	background-color: rgba(43, 43, 51, 0.8);
 	border: #efefef 5px solid;
-	width: 75%;
+	width: 60%;
 	height: 99vh;
 	margin: auto;
 	margin-top: 1%;
@@ -94,4 +93,17 @@ a:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+button {
+    background-color: #EFEFEF;
+    border: none;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+    border-radius: 30px;
 }

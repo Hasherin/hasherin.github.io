@@ -35,7 +35,7 @@ function setBg() {
 	timeout = setInterval(() => {
 		currentImage = (currentImage + 1) % 4;
 		document.body.style.backgroundImage = `url('images/${mode}/${images[currentImage]}-${mode}.png')`;
-	}, 10000);
+	}, 15000);
 }
 
 function switchBg() {
