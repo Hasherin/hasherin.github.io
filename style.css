@@ -1,6 +1,5 @@
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #2b2b33;
     color: #EFEFEF;
 }
 
@@ -24,10 +23,21 @@ a:hover {
     transition: ease-in 0.25s;
 }
 
+.divstrip {
+    background-color: #2B2B33;
+    border: #EFEFEF 5px solid;
+    width: 75%;
+    height: 99vh;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+}
+
 .center {
     margin: auto;
     width: 50%;
-    padding: 1%;
+    padding: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +46,7 @@ a:hover {
 .iicons {
     width: 75%;
     height: auto;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .items {
@@ -45,7 +55,7 @@ a:hover {
     align-items: center;
     gap: 100px;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 40%;
+    max-width: 50%;
     margin: 0 auto;
 }
 
@@ -71,7 +81,7 @@ a:hover {
 }
 
 .title-image {
-    width: 50%;
+    width: 70%;
     height: auto;
     margin: auto;
 }
