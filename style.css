@@ -96,14 +96,13 @@ a:hover {
 }
 
 button {
-    background-color: #EFEFEF;
-    border: none;
-    padding: 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    background-color: white;
+    height: 45px;
+    width: 45px;
     margin: 10px 10px;
-    cursor: pointer;
-    border-radius: 30px;
+    border: 0;
+    border-color: white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
 }
