@@ -1,7 +1,10 @@
 let mode = "light";
 let timeout;
 const images = ["comp", "parl", "shrine", "spawn"];
-let currentImage = 0
+let themeSwitch;
+let themeSwitchLight;
+let themeSwitchDark;
+let currentImage = 0;
 
 window.addEventListener("load", init, false);
 
@@ -18,20 +21,28 @@ function copyToClipboard(text) {
 
 function init() {
 	mode = localStorage.getItem("mode");
-    document.querySelector("#theme-switch").addEventListener('click', () => switchBg(), false);
+	document
+		.querySelector("#theme-switch")
+		.addEventListener("click", () => switchBg(), false);
 	if (mode == null) {
 		mode = window.matchMedia("(prefers-color-scheme: dark)").matches
 			? "dark"
 			: "light";
 		localStorage.setItem("mode", mode);
 	}
-    currentImage = 0;
+
+	themeSwitch = document.querySelector("#theme-switch");
+	themeSwitchLight = document.querySelector("#theme-switch-light");
+	themeSwitchDark = document.querySelector("#theme-switch-dark");
+	themeButtonUpdate();
+
+	currentImage = 0;
 	document.body.style.backgroundImage = `url('images/${mode}/${images[currentImage]}-${mode}.png')`;
 	setBg();
 }
 
 function setBg() {
-    document.body.style.backgroundImage = `url('images/${mode}/${images[currentImage]}-${mode}.png')`;
+	document.body.style.backgroundImage = `url('images/${mode}/${images[currentImage]}-${mode}.png')`;
 	timeout = setInterval(() => {
 		currentImage = (currentImage + 1) % 4;
 		document.body.style.backgroundImage = `url('images/${mode}/${images[currentImage]}-${mode}.png')`;
@@ -39,8 +50,24 @@ function setBg() {
 }
 
 function switchBg() {
-    mode = mode === "light" ? "dark" : "light";    
+	mode = mode === "light" ? "dark" : "light";
+	themeButtonUpdate();
 	localStorage.setItem("mode", mode);
 	clearInterval(timeout);
 	setBg();
+}
+
+function themeButtonUpdate() {
+	switch (mode) {
+		case "dark":
+			themeSwitch.style.backgroundColor = "#000000";
+			themeSwitchDark.style.display = "none";
+			themeSwitchLight.style.display = "inline";
+			break;
+		case "light":
+			themeSwitch.style.backgroundColor = "#EFEFEF";
+			themeSwitchDark.style.display = "inline";
+			themeSwitchLight.style.display = "none";
+			break;
+	}
 }
