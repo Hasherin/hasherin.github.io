@@ -23,6 +23,9 @@ body {
 	transition: background-image 1s;
 	background-color: var(--base-color);
 	color: var(--text-color);
+	background-attachment: fixed;
+	background-size: cover;
+	overflow-x: hidden;
 }
 
 a {

@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const body = document.body;
 	const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-	// Set mode
 	if (prefersDarkScheme) {
 		body.classList.add('darkmode');
 	} else {
