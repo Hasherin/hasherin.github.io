@@ -23,7 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	];
 
 	let currentImage = 0;
-	const backgroundInterval = 10000;
+	const backgroundInterval = 10000; // 10 seconds
+	let allImagesPreloaded = false;
+
+	function preloadImages(imagePaths, callback) {
+		let loadedCount = 0;
+		const totalImages = imagePaths.length;
+		const images = [];
+
+		imagePaths.forEach((path, index) => {
+			images[index] = new Image();
+			images[index].src = path;
+			images[index].onload = () => {
+				loadedCount++;
+				if (loadedCount === totalImages) {
+					callback();
+				}
+			};
+			images[index].onerror = () => {
+				console.error(`Failed to load image: ${path}`);
+			};
+		});
+	}
 
 	function updateBackground() {
 		const images = body.classList.contains('darkmode') ? darkImages : lightImages;
@@ -31,8 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		currentImage = (currentImage + 1) % images.length;
 	}
 
-	updateBackground();
-	setInterval(updateBackground, backgroundInterval);
+	function startBackgroundRotation() {
+		updateBackground();
+		setInterval(updateBackground, backgroundInterval);
+	}
+
+	const allImages = [...lightImages, ...darkImages];
+	preloadImages(allImages, () => {
+		console.log('All images preloaded.');
+		allImagesPreloaded = true;
+		startBackgroundRotation();
+	});
 });
 
 function copyToClipboard(text) {
@@ -42,6 +72,6 @@ function copyToClipboard(text) {
 			alert("IP cím kimásolva");
 		})
 		.catch((err) => {
-			alert("Nem sikerült kimásolni az IP címet: ", err);
+			alert("Nem sikerült kimásolni az IP címet: " + err);
 		});
 }
